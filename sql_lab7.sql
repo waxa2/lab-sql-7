@@ -6,7 +6,7 @@ use sakila;
 -- So we do not want to include this last name in our output. Last name "Astaire" is present only one time with actor "Angelina Astaire",
 -- hence we would want this in our output list.
 
-SELECT first_name,last_name, COUNT(last_name) as count_lastname
+SELECT last_name, COUNT(last_name) as count_lastname
 FROM actor
 GROUP BY last_name
 HAVING count_lastname<2;
@@ -14,7 +14,7 @@ HAVING count_lastname<2;
 
 -- 2. Which last names appear more than once? We would use the same logic as in the previous question but this time we want to include the
 --  last names of the actors where the last name was present more than once
-SELECT first_name,last_name, COUNT(last_name) as count_lastname
+SELECT last_name, COUNT(last_name) as count_lastname
 FROM actor
 GROUP BY last_name
 HAVING count_lastname>1;
